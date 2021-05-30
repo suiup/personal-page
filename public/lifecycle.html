@@ -6,6 +6,44 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-ssh
+<h1>lifecycle</h1>
+<div id="app">
+    {{msg}}
+</div>
+
+<hr>
+<img src="lifecycle.png">
 </body>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: 'hi vue'
+        },
+        beforeCreate: function () {
+            console.log("before create")
+        },
+        created: function () {
+            console.log("created")
+        },
+        beforeMount: function () {
+            console.log("before mount")
+        },
+        mounted: function () {
+            console.log("mounted")
+        },
+        beforeUpdate: function () {
+            console.log("before update")
+        },
+        updated: function () {
+            console.log("updated")
+        },
+        beforeDestroy: function () {
+            console.log("before destroy")
+        },
+        destroyed: function () {
+            console.log("destroyed")
+        }
+    })
+</script>
 </html>

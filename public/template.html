@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Mustache Text</h1>
+    {{msg}}
+    <hr>
+    <h1>Original HTML</h1>
+    <p>Using mustaches: {{ rawHtml }}</p>
+    <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+    <hr>
+    <h1>Attribute v-bind</h1>
+    <div v-bind:class="color">test...</div>
+    <a v-bind:href="url">A simple url</a>
+    <hr>
+    <h1>JavaScript Expressions</h1>
+    <p>{{number + 1}}</p>
+    {{ ok ? 'YES' : 'NO' }}
+    <p>{{ message.split('').reverse().join('') }}</p>
+    <hr>
+    <h1>modifier  example: .stop</h1>
+    <div @click="click1">
+        <div @click.stop="click2">
+            click me
+        </div>
+    </div>
+    <hr>
+    <h1>Shorthands (缩写)</h1>
+    <h2>v-bind</h2>
+    <a v-bind:href="url">v-bind</a>
+    <a :href="url">v-bind shorthands</a>
+    <h2>v-on</h2>
+    <a v-on:click="doSomething">on click</a>
+    <a @click="doSomething">on click</a>
+
+
+</div>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "Hello",
+            rawHtml: "<span style='color: red'>This is should be red</span>",
+            color: "red",
+            number: 10,
+            ok: true,
+            message: "vue",
+            url: "https://github.com/"
+        },
+        methods: {
+            click1 : function () {
+                console.log("click1...")
+            },
+            click2 : function () {
+                console.log("click2...")
+            },
+            doSomething : function () {
+                console.log("on click")
+            }
+        }
+    });
+</script>
+<style type="text/css">
+    .red{color: red;}
+</style>
+</html>
