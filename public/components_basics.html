@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件基础</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="components-demo">
+    <button-counter></button-counter>
+
+    <blog-post title="My journey with Vue"></blog-post>
+    <blog-post title="Blogging with Vue"></blog-post>
+    <blog-post title="Why Vue is so fun"></blog-post>
+</div>
+<div id="blog-post-demo">
+    <blog-post
+            v-for="post in posts"
+            v-bind:key="post.id"
+            v-bind:title="post.title"
+    ></blog-post>
+
+</div>
+
+<div id="blog-post-demo02">
+    <blog-post-demo02
+            v-for="post in posts"
+            v-bind:key="post.id"
+            v-bind:post="post"
+    ></blog-post-demo02>
+</div>
+
+<hr>
+
+<div id="blog-posts-events-demo">
+    <div :style="{ fontSize: postFontSize + 'em' }">
+        <blog-post-events-com
+                v-for="post in posts"
+                v-bind:key="post.id"
+                v-bind:post="post"
+                v-on:enlarge-text="postFontSize += $event"
+        ></blog-post-events-com>
+        <!--然后当在父级组件监听这个事件的时候，我们可以通过 $event 访问到被抛出的这个值：-->
+    </div>
+</div>
+
+<div>
+    <h1>在组件上使用 v-model, query document</h1>
+    Content Distribution with Slots
+
+    <alert-box>
+        Something bad happened.
+    </alert-box>
+
+</div>
+
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+
+
+
+
+</body>
+<script>
+    // Define a new component called button-counter
+    Vue.component('button-counter', {
+        //一个组件的 data 选项必须是一个函数，因此每个实例可以维护一份被返回对象的独立的拷贝：
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+    });
+
+    Vue.component('blog-post', {
+        // 可改加属性，从而传递数据 prop 就是这个组件可以具有的属性
+        props: ['title'],
+        template: '<h3>{{ title }}</h3>'
+    });
+
+    new Vue({ el: '#components-demo' });
+
+    new Vue({
+        el: '#blog-post-demo',
+        data: {
+            posts: [
+                { id: 1, title: 'My journey with Vue' },
+                { id: 2, title: 'Blogging with Vue' },
+                { id: 3, title: 'Why Vue is so fun' }
+            ]
+        }
+    });
+
+
+    Vue.component('blog-post-demo02', {
+        props: ['post'],
+        template: `
+            <div class="blog-post-demo02">
+              <h3>{{ post.title }}</h3>
+              <div v-html="post.content"></div>
+            </div>
+           `
+    });
+    new Vue({
+        el: '#blog-post-demo02',
+        data: {
+            posts: [
+                { id: 1, title: 'My journey with Vue' },
+                { id: 2, title: 'Blogging with Vue' },
+                { id: 3, title: 'Why Vue is so fun' }
+            ]
+        }
+    });
+
+
+    Vue.component('blog-post-events-com', {
+        props: ['post'],
+        template: `
+    <div class="blog-post">
+      <h3>{{ post.title }}</h3>
+      <button v-on:click="$emit('enlarge-text', 0.1)">
+        Enlarge text
+      </button>
+      <div v-html="post.content"></div>
+    </div>
+  `
+    });
+
+    new Vue({
+        el: '#blog-posts-events-demo',
+        data: {
+            posts: [
+                { id: 1, title: 'My journey with Vue' },
+                { id: 2, title: 'Blogging with Vue' },
+                { id: 3, title: 'Why Vue is so fun' }
+            ],
+            postFontSize: 1
+        }
+    });
+
+    /*插槽*/
+    Vue.component('alert-box', {
+        template: `
+    <div class="demo-alert-box">
+      <strong>Error!</strong>
+      <slot></slot>
+    </div>
+  `
+    })
+
+
+
+</script>
+</html>
