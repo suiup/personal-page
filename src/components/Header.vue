@@ -1,16 +1,18 @@
 <template>
     <div>
         <v-app-bar
-                color="deep-purple accent-4"
+                color="blue-grey lighten-2"
                 dense
                 dark
         >
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-            <v-toolbar-title>Robin's Blog</v-toolbar-title>
-
+            <v-tab :to="blog_link">
+                {{blog}}
+            </v-tab>
             <v-spacer></v-spacer>
-
+            <v-tab router :to="links.route">
+                {{links.text}}
+            </v-tab>
             <v-btn icon>
                 <v-icon>mdi-heart</v-icon>
             </v-btn>
@@ -49,10 +51,20 @@
 
 <script>
     export default {
-        name: "Header"
+        name: "Header",
+        data() {
+            return {
+                blog: "Robin's Blog",
+                blog_link: "/",
+                links: {
+                    text: "Calendar",
+                    route: "/calendars"
+                },
+            }
+        }
     }
 </script>
 
 <style scoped>
-
+    .v-tab { text-transform: none !important; }
 </style>

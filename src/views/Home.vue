@@ -1,18 +1,19 @@
 <template>
     <div class="home">
-        <img alt="Vue logo" src="../assets/logo.png">
-        <h1>This is test content</h1>
-        <HelloWorld msg="Welcome to Your Vue.js App"/>
+        <Carousels></Carousels>
+        <Timelines></Timelines>
     </div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+import Carousels from '@/components/Carousels.vue'
+import Timelines from "@/components/Timelines.vue"
 
 export default {
     name: 'home',
     components: {
-        HelloWorld
+        Carousels,
+        Timelines
     }
 }
 
