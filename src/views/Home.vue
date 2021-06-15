@@ -1,7 +1,10 @@
 <template>
     <div class="home">
+
         <Carousels></Carousels>
         <Timelines></Timelines>
+
+
     </div>
 </template>
 
@@ -13,7 +16,7 @@ export default {
     name: 'home',
     components: {
         Carousels,
-        Timelines
+        Timelines,
     }
 }
 

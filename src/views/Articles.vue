@@ -19,7 +19,7 @@
             }
         },
         mounted(){
-            axios.get("./files/RL/Q-Learning.md").then((response) => {
+            axios.get("./files/Q_Learning/Q-Learning.md").then((response) => {
                 this.mdText = response.data
             });
         },

@@ -16,11 +16,7 @@
 
         components: {
             Header,
-            Footer
+            Footer,
         },
-
-        data: () => ({
-            //
-        }),
     };
 </script>

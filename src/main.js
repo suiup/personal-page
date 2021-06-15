@@ -5,7 +5,6 @@ import vuetify from './plugins/vuetify'
 import markdown from '@/directives/markdown';
 
 Vue.config.productionTip = false;
-
 Vue.directive('markdown', markdown);
 
 new Vue({
