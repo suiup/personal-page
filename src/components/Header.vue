@@ -44,8 +44,11 @@
                     <v-list-item :to="color.route">
                         <v-list-item-title>Color</v-list-item-title>
                     </v-list-item>
-                    <v-list-item>
-                        <v-list-item-title>Option 2</v-list-item-title>
+                    <v-list-item :to="markdown.route">
+                        <v-list-item-title>Markdown preview</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item :to="article.route">
+                        <v-list-item-title>Articles</v-list-item-title>
                     </v-list-item>
                 </v-list>
             </v-menu>
@@ -71,6 +74,12 @@
                 },
                 color: {
                     route: "/color"
+                },
+                markdown:{
+                    route: "/markdown"
+                },
+                article: {
+                    route: "/article"
                 }
             }
         }
@@ -78,5 +87,5 @@
 </script>
 
 <style scoped>
-    .v-tab { text-transform: none !important; color: white}
+    .v-tab { text-transform: none !important; color: white; text-decoration: none}
 </style>

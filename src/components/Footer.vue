@@ -10,7 +10,7 @@
         >
             <v-card-text>
                 <v-btn
-                        v-for="icon in iconss"
+                        v-for="icon in icons"
                         :key="icon"
                         class="mx-4"
                         icon
@@ -34,7 +34,7 @@
 <script>
     export default {
         data: () => ({
-            iconss:[
+            icons:[
                 {
                     name: 'mdi-home',
                     src: "/suiup"

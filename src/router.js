@@ -39,6 +39,16 @@ export default new Router({
             path: "/color",
             name: "/color",
             component: Color
+        },
+        {
+            path: "/markdown",
+            name: "markdown",
+            component: ()=> import(/* webpackChunkName: "Markdown" */ "./views/MarkdownPreview.vue")
+        },
+        {
+            path: "/article",
+            name: "article",
+            component: () => import(/* webpackChunkName: "Article" */ "./views/Articles.vue")
         }
 
 
