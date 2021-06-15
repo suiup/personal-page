@@ -10,13 +10,14 @@
         >
             <v-card-text>
                 <v-btn
-                        v-for="icon in icons"
+                        v-for="icon in iconss"
                         :key="icon"
                         class="mx-4"
                         icon
+                        :to="icon.src"
                 >
-                    <v-icon size="24px">
-                        {{ icon }}
+                    <v-icon size="24px" >
+                        {{ icon.name }}
                     </v-icon>
                 </v-btn>
             </v-card-text>
@@ -33,11 +34,23 @@
 <script>
     export default {
         data: () => ({
-            icons: [
-                'mdi-home',
-                'mdi-email',
-                'mdi-calendar',
-                'mdi-delete',
+            iconss:[
+                {
+                    name: 'mdi-home',
+                    src: "/suiup"
+                },
+                {
+                    name: 'mdi-email',
+                    src: "/suiup"
+                },
+                {
+                    name: 'mdi-calendar',
+                    src: "/suiup"
+                },
+                {
+                    name: 'mdi-delete',
+                    src: "/suiup"
+                },
             ],
         }),
     }

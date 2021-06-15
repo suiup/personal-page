@@ -1,13 +1,15 @@
 <template>
-    <div>
+    <div style="height: 48px">
         <v-app-bar
+                id="bar"
                 color="blue-grey lighten-2"
                 dense
+                fixed
                 dark
-        >
+                  >
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
-            <v-tab :to="blog_link">
-                {{blog}}
+            <v-tab :to="blog.route">
+                {{blog.text}}
             </v-tab>
             <v-spacer></v-spacer>
             <v-tab router :to="links.route">
@@ -36,12 +38,14 @@
                 </template>
 
                 <v-list>
-                    <v-list-item
-                            v-for="n in 5"
-                            :key="n"
-                            @click="() => {}"
-                    >
-                        <v-list-item-title>Option {{ n }}</v-list-item-title>
+                    <v-list-item router :to="theme.route">
+                        <v-list-item-title>Theme</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item :to="color.route">
+                        <v-list-item-title>Color</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item>
+                        <v-list-item-title>Option 2</v-list-item-title>
                     </v-list-item>
                 </v-list>
             </v-menu>
@@ -54,17 +58,25 @@
         name: "Header",
         data() {
             return {
-                blog: "Robin's Blog",
-                blog_link: "/",
+                blog: {
+                    text: "Robin's Blog",
+                    route: "/suiup"
+                },
                 links: {
                     text: "Calendar",
                     route: "/calendars"
                 },
+                theme: {
+                    route:"/theme"
+                },
+                color: {
+                    route: "/color"
+                }
             }
         }
     }
 </script>
 
 <style scoped>
-    .v-tab { text-transform: none !important; }
+    .v-tab { text-transform: none !important; color: white}
 </style>
