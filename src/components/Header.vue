@@ -15,6 +15,9 @@
             <v-tab router :to="links.route">
                 {{links.text}}
             </v-tab>
+            <v-tab router :to="layout.route">
+                {{layout.text}}
+            </v-tab>
             <v-btn icon>
                 <v-icon>mdi-heart</v-icon>
             </v-btn>
@@ -80,6 +83,10 @@
                 },
                 article: {
                     route: "/article"
+                },
+                layout: {
+                    text: "Layout",
+                    route: "/layout"
                 }
             }
         }

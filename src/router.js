@@ -9,7 +9,6 @@ import Color from "./views/Color"
 Vue.use(Router);
 
 export default new Router({
-    mode: "history",
     routes: [
         {
             path: "/",
@@ -49,6 +48,11 @@ export default new Router({
             path: "/article",
             name: "article",
             component: () => import(/* webpackChunkName: "Article" */ "./views/Articles.vue")
+        },
+        {
+            path: "/layout",
+            name: "layout",
+            component: () => import(/* webpackChunkName: "Layout" */ "./views/Layout.vue")
         }
 
 
