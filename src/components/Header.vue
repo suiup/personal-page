@@ -1,12 +1,11 @@
 <template>
     <div style="height: 48px">
         <v-app-bar
-                id="bar"
                 color="blue-grey lighten-2"
                 dense
                 fixed
                 dark
-                  >
+        >
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
             <v-tab :to="blog.route">
                 {{blog.text}}

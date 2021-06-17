@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home"
-import Lesson from "./views/Lesson"
 import Calendars from "./views/Calendars"
 import Theme from "./views/Theme"
 import Color from "./views/Color"
@@ -18,11 +17,6 @@ export default new Router({
             path: "/suiup",
             name: "home",
             component: Home
-        },
-        {
-            path: "/lesson",
-            name: "lesson",
-            component: Lesson
         },
         {
             path: "/calendars",
