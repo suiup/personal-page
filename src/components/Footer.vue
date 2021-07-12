@@ -10,8 +10,8 @@
         >
             <v-card-text>
                 <v-btn
-                        v-for="icon in icons"
-                        :key="icon"
+                        v-for="(icon, index) in icons"
+                        :key="index"
                         class="mx-4"
                         icon
                         :to="icon.src"

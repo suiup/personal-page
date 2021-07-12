@@ -10,6 +10,9 @@
             <v-tab :to="blog.route">
                 {{blog.text}}
             </v-tab>
+            <v-tab :to="album.route">
+                {{album.text}}
+            </v-tab>
             <v-spacer></v-spacer>
             <v-tab router :to="links.route">
                 {{links.text}}
@@ -70,6 +73,10 @@
                 links: {
                     text: "Calendar",
                     route: "/calendars"
+                },
+                album:{
+                    text: "Album",
+                    route: "/album"
                 },
                 theme: {
                     route:"/theme"
