@@ -10,13 +10,15 @@ Vue.use(Router);
 export default new Router({
     routes: [
         {
-            path: "/",
-            name: "home",
-            component: Home
-        },{
             path: "/suiup",
             name: "home",
             component: Home
+        },
+        {
+            path: "/",
+            redirect: {
+                name: "home"
+            }
         },
         {
             path: "/calendars",
@@ -47,6 +49,11 @@ export default new Router({
             path: "/layout",
             name: "layout",
             component: () => import(/* webpackChunkName: "Layout" */ "./views/Layout.vue")
+        },
+        {
+            path: "/album",
+            name: "album",
+            component: () => import(/* webpackChunkName: "Album" */ "./views/Album.vue")
         }
 
 

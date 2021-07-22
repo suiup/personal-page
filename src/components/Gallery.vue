@@ -1,0 +1,136 @@
+<template>
+    <div class="gallery">
+        <div class="activePhoto" :style="'background-image:url('+photos[activePhoto]+');'">
+            <button type="button" class="previous" @click="previousPhoto()">
+                <i class="fas fa-chevron-circle-left"></i>
+            </button>
+            <button type="button" class="next" @click="nextPhoto()">
+                <i class="fas fa-chevron-circle-right"></i>
+            </button>
+        </div>
+        <div class="thumbnails">
+            <div
+                    v-for="(photo,index) in photos"
+                    :src="photo"
+                    :key="index"
+                    @click="changePhoto(index)"
+                    :class="{'cative':activePhoto == index}" :style="'background-image:url('+photo+')'">
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "Gallery",
+        props: ['photos'],
+        data:function(){
+            return{
+                activePhoto:null
+            }
+        },
+        mounted(){
+            this.changePhoto(0);
+            document.addEventListener("keydown",(event) =>{
+                if(event.which == 37)
+                    this.previousPhoto()
+                if(event.which ==39)
+                    this.nextPhoto()
+            })
+        },
+        methods:{
+            changePhoto(index){
+                this.activePhoto = index
+            },
+            nextPhoto(){
+                this.changePhoto(this.activePhoto+1<this.photos.length ? this.activePhoto+1:0)
+            },
+            previousPhoto(){
+                this.changePhoto(this.activePhoto-1>=0 ? this.activePhoto-1:this.photos.length-1)
+            }
+        }
+    }
+</script>
+
+<style scoped>
+
+    .header{
+        text-align: center;
+    }
+    #app{
+        margin: auto;
+    }
+    .header h1{
+        background:-webkit-linear-gradient(#fff,#8f70ba);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        text-align: center;
+        font-weight: 900;
+        font-size: 3rem;
+        color: #fff;
+        margin-bottom: 30px;
+    }
+    .container{
+        padding: 6px;
+        background-color: #fff;
+        border-radius: 8px;
+        max-width: 800px;
+        box-shadow: 0 5px 8px #0000007a;
+    }
+    .gallery .activePhoto{
+        width: 100%;
+        margin-bottom: 5px;
+        padding-bottom: 65%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: 2px solid #fff;
+        position: relative;
+    }
+    .gallery .activePhoto button{
+        border:none;
+        background-color: transparent;
+        font-size: 32px;
+        color:#fff;
+        opacity: 0.5;
+        position: absolute;
+        outline: none;
+        height: 100%;
+    }
+    .gallery .activePhoto button hover{
+        opacity: 1;
+    }
+    .gallery .activePhoto button.previous{
+        padding: 0 1em 0 0.7em;
+        left: 0;
+        background: linear-gradient(to right,rgba(0,0,0,0.0) 0%,rgba(0,0,0,0,) 100%);
+    }
+    .gallery .activePhoto button.next{
+        padding:0 0.7em, 0 1em;
+        right: 0;
+        background:linear-gradient(to right,rgba(0,0,0,0.0) 0%,rgba(0,0,0,0,) 100%);
+    }
+    .gallery .thumbnails{
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+        grid-gap: 5px;
+    }
+    .gallery .thumbnails div{
+        width: 100%;
+        border:2px solid #fff;
+        outline: 2px solid #fff;
+        cursor: pointer;
+        padding-bottom: 65%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 1;
+    }
+    .gallery .thumbnails div:hover{
+        opacity: 0.6;
+    }
+    .gallery .thumbnails div.active{
+        outline-color: #5c4084;
+        opacity: 1;
+    }
+</style>

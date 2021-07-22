@@ -1,5 +1,5 @@
 # Q-Learning
-
+[link](https://thomassimonini.medium.com/)
 ## What is RL? A short recap
 
 In RL, we build an agent that can **make smart decisions**. For instance, an agent that **learns to play a video game.** Or a trading agent that **learns to maximize its benefits** by making smart decisions on **what stocks to buy and when to sell.**
