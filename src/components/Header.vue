@@ -13,6 +13,9 @@
             <v-tab :to="album.route">
                 {{album.text}}
             </v-tab>
+            <v-tab :to="articles.route">
+                {{articles.text}}
+            </v-tab>
             <v-spacer></v-spacer>
             <v-tab router :to="links.route">
                 {{links.text}}
@@ -78,6 +81,14 @@
                     text: "Album",
                     route: "/album"
                 },
+                articles:{
+                    text: "Articles",
+                    route: "/articles"
+                },
+                fileR:{
+                    text: "Articles",
+                    route: "/articles"
+                },
                 theme: {
                     route:"/theme"
                 },
@@ -100,5 +111,8 @@
 </script>
 
 <style scoped>
+    .v-tab{
+        margin: 10px;
+    }
     .v-tab { text-transform: none !important; color: white; text-decoration: none}
 </style>

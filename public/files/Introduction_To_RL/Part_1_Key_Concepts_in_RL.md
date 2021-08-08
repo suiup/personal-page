@@ -20,7 +20,7 @@ RL methods have recently enjoyed a wide variety of successes. For example, it’
 
 ## Key Concepts and Terminology 关键概念和术语
 
-![image-20210616192305161](./image-20210616192305161.png)
+![image-20210616192305161](./files/Introduction_To_RL/image-20210616192305161.png)
 
 The main characters of RL are the **agent** and the **environment**. The environment is the world that the agent lives in and interacts with. At every step of interaction, the agent sees a (possibly partial) observation of the state of the world, and then decides on an action to take. The environment changes when the agent acts on it, but may also change on its own.
 

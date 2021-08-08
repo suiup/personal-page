@@ -8,7 +8,7 @@ Now that we’ve gone through the basics of RL terminology and notation, we can 
 
 
 
-![image-20210616210750575](./image-20210616210750575.png)
+![image-20210616210750575](./files/Introduction_To_RL/image-20210616210750575.png)
 
 
 
