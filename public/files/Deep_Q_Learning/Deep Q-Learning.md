@@ -22,7 +22,7 @@ This will be the architecture of our Deep Q Learning:
 
 这是一个 Deep Q Learning  的结构图
 
-![1618613927099](./1618613927099.png)
+![1618613927099](./files/Deep_Q_Learning/1618613927099.png)
 This can seem complex, but I’ll explain the architecture step by step.
 
 
@@ -87,7 +87,7 @@ We stack frames together because it helps us to handle the problem of temporal l
 
 Let’s take an example, in the game of Pong. When you see this frame:
 
-![1618614946460](./1618614946460.png)
+![1618614946460](./files/Deep_Q_Learning/1618614946460.png)
 
 这是一个类似乒乓球的游戏，当我们看到这个帧的时候
 
@@ -97,7 +97,7 @@ No, because one frame is not enough to have a sense of motion!
 
 当然不可以 ，因为一个帧是不足以对动作有感知的
 
-But what if I add three more frames? Here you can see that the ball is going to the right.![1618615044056](./1618615044056.png)
+But what if I add three more frames? Here you can see that the ball is going to the right.![1618615044056](./files/Deep_Q_Learning/1618615044056.png)
 
 
 
@@ -146,7 +146,7 @@ We have a big problem: the variability of the weights, because there is high cor
 
 如果我们在第一关，然后到了第二关之后，这两个关卡完全不同，我们创建的agent就是忘记第一关的时候是怎么表现的了
 
-![1618617342822](./1618617342822.png)
+![1618617342822](./files/Deep_Q_Learning/1618617342822.png)
 
 因此，通过多次学习，可以更有效地利用以前的经验。
 
@@ -190,7 +190,7 @@ By sampling from the replay buffer at random, we can break this correlation. Thi
 
 It will be easier to understand that with an example. Let’s say we play a first-person shooter, where a monster can appear on the left or on the right. The goal of our agent is to shoot the monster. It has two guns and two actions: shoot left or shoot right.
 
-![1618650151433](./1618650151433.png)
+![1618650151433](./files/Deep_Q_Learning/1618650151433.png)
 
 We learn with ordered experience. Say we know that if we shoot a monster, the probability that the next monster comes from the same direction is 70%. In our case, this is the correlation between our experiences tuples.
 
@@ -200,7 +200,7 @@ Then the next monster also comes from the right (with 70% probability), and the 
 
 And so on and on…
 
-![1618650191786](./1618650191786.png)
+![1618650191786](./files/Deep_Q_Learning/1618650191786.png)
 
 
 
@@ -208,11 +208,11 @@ The problem is, this approach increases the value of using the right gun through
 
 
 
-![1618650203257](./1618650203257.png)
+![1618650203257](./files/Deep_Q_Learning/1618650203257.png)
 
 And if our agent doesn’t see a lot of left examples (since only 30% will probably come from the left), our agent will only finish by choosing right regardless of where the monster comes from. This is not rational at all.
 
-![1618650215903](./1618650215903.png)
+![1618650215903](./files/Deep_Q_Learning/1618650215903.png)
 
 We have two parallel strategies to handle this problem
 
@@ -238,7 +238,7 @@ This helps avoid being fixated on one region of the state space. This prevents r
 
 Bellman equation:
 
-![1618650789534](./1618650789534.png)
+![1618650789534](./files/Deep_Q_Learning/1618650789534.png)
 
 在Deep Q-learning 中，我们需要更新神经网络的权重来减小错误
 
@@ -250,7 +250,7 @@ The error (or TD error) is calculated by taking the difference between our Q_tar
 
 
 
-![1618650885714](./1618650885714.png)
+![1618650885714](./files/Deep_Q_Learning/1618650885714.png)
 
 
 
