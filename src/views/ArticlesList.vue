@@ -85,33 +85,23 @@
 
 <style scoped>
 .content{
-    max-height: 210px;
+    max-height: 200px;
     max-width: 400px;
     overflow: hidden;
     /*display: inline-block;*/
-    text-overflow: "...";
+    text-overflow: ellipsis;
     /*将对象作为弹性伸缩盒子模型显示*/
-    /*display: -webkit-box;*/
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
     text-align: justify;
-    line-height: 1.2em;
+    line-height: 2.6em;
     position: relative;
     /*设置子元素排列方式*/
     -webkit-box-orient: vertical;
 }
 
-.content::after {
-    content: "...";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    /*将省略号的大小设置为1个字体大小*/
-    width: 1em;
-    /*设置背景，将最后一个字覆盖掉*/
-    background: #fff;
-}
-
 #card{
-    margin: 10px;
+    margin: 12px;
 }
 
 

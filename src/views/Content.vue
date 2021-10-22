@@ -1,31 +1,34 @@
 <template>
     <div id="body">
-        <div class="left-column">
-            <div class="card">
-                <h2>About Me</h2>
-                <div class="fakeimg" style="height:100px;">Image</div>
-                <p>Some text about me ...</p>
-            </div>
-            <div class="card">
-                <h3>Popular Post</h3>
-                <div class="fakeimg"><p>Image</p></div>
-                <div class="fakeimg"><p>Image</p></div>
-                <div class="fakeimg"><p>Image</p></div>
-            </div>
-        </div>
-        <div class="right-column">
-            <div class="card">
-                <h2>About Me</h2>
-                <div class="fakeimg" style="height:100px;">Image</div>
-                <p>Some text about me ...</p>
-            </div>
-            <div class="card">
-                <h3>Popular Post</h3>
-                <div class="fakeimg"><p>Image</p></div>
-                <div class="fakeimg"><p>Image</p></div>
-                <div class="fakeimg"><p>Image</p></div>
-            </div>
-        </div>
+
+        <a href="#" id="anchor">top</a>
+
+        <!--<div class="left-column">-->
+            <!--<div class="card">-->
+                <!--<h2>About Me</h2>-->
+                <!--<div class="fakeimg" style="height:100px;">Image</div>-->
+                <!--<p>Some text about me ...</p>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+                <!--<h3>Popular Post</h3>-->
+                <!--<div class="fakeimg"><p>Image</p></div>-->
+                <!--<div class="fakeimg"><p>Image</p></div>-->
+                <!--<div class="fakeimg"><p>Image</p></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="right-column">-->
+            <!--<div class="card">-->
+                <!--<h2>About Me</h2>-->
+                <!--<div class="fakeimg" style="height:100px;">Image</div>-->
+                <!--<p>Some text about me ...</p>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+                <!--<h3>Popular Post</h3>-->
+                <!--<div class="fakeimg"><p>Image</p></div>-->
+                <!--<div class="fakeimg"><p>Image</p></div>-->
+                <!--<div class="fakeimg"><p>Image</p></div>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="row">
             <div class="middle-column">
                 <vue-markdown :source="mdText" class="card" ></vue-markdown>
@@ -76,8 +79,12 @@
     }
 
     #body {
-        padding: 10px;
+        position: relative;
+        padding: 5px;
         background: #f1f1f1;
+        width: 1200px;
+        margin: 0 auto;
+
     }
     /* Create two unequal columns that floats next to each other */
     /* Left column */
@@ -120,7 +127,7 @@
     .card {
         background-color: white;
         padding: 20px;
-        margin-top: 10px;
+        margin-top: 7px;
     }
 
     /* Clear floats after the columns */
@@ -128,6 +135,29 @@
         content: "";
         display: table;
         clear: both;
+    }
+
+    a {
+        text-decoration: none;
+        text-align: center;
+        line-height: 50px;
+        background-color: rgba(0, 0, 0, 0.4);
+        font-size: 20px;
+        color: black;
+    }
+
+    a:hover{
+        background-color: gray;
+    }
+
+    #anchor {
+        position: fixed;
+        /*走浏览器宽度一半*/
+        left: 50%;
+        bottom: 150px;
+        margin-left: 600px;
+        width: 50px;
+        height: 50px;
     }
 
     /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
