@@ -4,7 +4,7 @@ node_js:
 
 cache: npm
 
-script: [npm run build, npx browserslist@latest --update-db]
+script: [npx browserslist@latest --update-db, npm run build]
 
 deploy:
   provider: pages
