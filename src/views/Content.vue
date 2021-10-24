@@ -56,6 +56,12 @@
         mounted(){
             this.getParams();
         },
+        updated(){
+            var images = document.images;
+            for(let img of images){
+                img.style.width =  "100%";
+            }
+        },
         watch:{
             '$route'(){
                 this.getParams();
@@ -68,7 +74,7 @@
                 axios.get(this.param).then((response) => {
                     this.mdText = response.data
                 });
-            }
+            },
         }
     }
 </script>

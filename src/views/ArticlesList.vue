@@ -51,11 +51,6 @@
         },
         mounted(){
             const files_test = require.context('../../public/files', true, /.md$/).keys();
-            // const files = require.context('../../public/files/test', false, /.md$/).keys();
-            // console.log(files);
-            // console.log(files[0].substring(2))
-            // console.log(files_test);
-            // console.log(files_test[0].substring(2));
             for(let file of files_test){
                 new Promise((resolve,reject)=>{
                     // console.log(file)
