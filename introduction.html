@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>演示，起步阶段</h1>
+    {{message}}
+</div>
+<hr>
+<div id="app-2">
+    <h1>v-bind attribute</h1>
+    <span v-bind:title="message">
+         v-bind attribute
+         鼠标悬停几秒钟查看此处动态绑定的提示信息！
+         v-bind:attribute 被称为指令
+         将这个元素节点的 title attribute 和 Vue 实例的 message property 保持一致
+    </span>
+</div>
+<hr>
+<div id="app-3">
+    <h1>v-if 条件</h1>
+    <p v-if="seen">现在你看到我了</p>
+</div>
+<hr>
+<div id="app-4">
+    <h1>v-for 循环</h1>
+    <ol>
+        <li v-for="line in list">
+            {{ line.text }}
+        </li>
+    </ol>
+</div>
+<hr>
+<div id="app-5">
+    <h1>v-on 事件监听器</h1>
+    处理用户输入, 使用 v-on 指令添加一个事件监听器
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">反转消息</button>
+</div>
+<hr>
+<div id="app-6">
+    <h1>v-model 表单输入和应用状态之间的双向绑定</h1>
+    v-model 它能轻松实现表单输入和应用状态之间的双向绑定
+    <p>{{ message }}</p>
+    <input v-model="message">
+</div>
+<hr>
+
+<div id="app-7">
+    <h1>这里用了组件，创建了组件之后，就用组件名作为标签使用，即使用了组件</h1>
+    <ol>
+        <!--
+          现在我们为每个 item-com 提供 item 对象
+          item 对象是变量，即其内容可以是动态的。
+          我们也需要为每个组件提供一个“key”
+        -->
+        <item-com
+                v-for="index in groceryList"
+                v-bind:item="index"
+                v-bind:key="index.id"
+        ></item-com>
+    </ol>
+</div>
+<hr>
+<div id="app-8">
+    <button-counter></button-counter>
+</div>
+
+
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue World 声明式渲染'
+        }
+    });
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            message : '页面加载于 ' + new Date().toLocaleString()
+        }
+    });
+
+    var app3 = new Vue({
+        el: '#app-3',
+        data: {
+            seen: true
+        }
+    });
+
+    var app4 = new Vue({
+        el: '#app-4',
+        data: {
+            list: [
+                { text: 'First line' },
+                { text: 'Second line' },
+                { text: 'Third line' }
+            ]
+        }
+    });
+
+    var app5 = new Vue({
+        el: '#app-5',
+        data: {
+            message: 'Hello Vue.js!'
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    });
+
+    var app6 = new Vue({
+        el: '#app-6',
+        data: {
+            message: 'Hello Vue!'
+        }
+    });
+
+    // 定义名为 item 的新组件
+    Vue.component('item-com', {
+        //item-com 组件，现在接受一个 prop， 类似于一个自定义attribute, 这个prop 名为 item
+        props: ['item'],
+        template: '<li>{{item.text}}</li>'
+    });
+
+    var app7 = new Vue({
+        el: '#app-7',
+        data: {
+            groceryList: [
+                { id: 0, text: '蔬菜' },
+                { id: 1, text: '奶酪' },
+                { id: 2, text: '随便其它什么人吃的东西' }
+            ]
+        }
+    });
+
+    Vue.component('button-counter',{
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '<button v-on:click="count++">Click me {{count}} times</button>'
+    });
+
+    var app8 = new Vue({
+        el: '#app-8',
+        data: {
+
+        }
+    })
+
+
+
+</script>
+</html>

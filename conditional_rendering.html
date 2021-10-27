@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conditional Rendering 条件渲染</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<h1>Hello</h1>
+<div id="app">
+    <div v-if="type === 'A'">
+        A
+    </div>
+    <div v-else-if="type === 'B'">
+        B
+    </div>
+    <div v-else-if="type === 'C'">
+        C
+    </div>
+    <div v-else="type === 'D'">
+        D
+    </div>
+    <h1 v-show="ok">Hello! Show</h1>
+    <!--一般来说，v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 v-show 较好；如果在运行时条件很少改变，则使用 v-if 较好。-->
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data :{
+            type: "B",
+            ok: true
+        }
+    })
+</script>
+</html>

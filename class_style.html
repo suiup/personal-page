@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Class 与 Style 绑定</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div
+            class="test"
+            v-bind:class="{ active: isActive }"
+            style="width: 200px; height: 200px; text-align: center; line-height: 200px;">
+        Hi vue
+    </div>
+    <!--class 绑定-->
+    <div
+            class="test"
+            v-bind:class="[isActive ? 'active' : '',isBlue ? 'blue': ''] "
+            style="width: 200px; height: 200px; text-align: center; line-height: 200px;">
+        Hi vue
+    </div>
+
+    <!--style 绑定-->
+    <!--第一个color 是style 的属性， 第二的是在 data 里边定义的值-->
+    <div :style="{color: color, fontSize: size}">
+        Hi vue style
+    </div>
+
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            isActive: false,
+            isBlue: true,
+            color: "green",
+            size: '50px'
+        }
+    })
+</script>
+<style>
+    .test{font-size: 20px}
+    .blue{color: blue}
+    .active{
+        background-color: red;
+    }
+</style>
+</html>

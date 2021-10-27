@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Rendering 列表渲染 </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<h1>List Rendering</h1>
+<div id="app">
+    <ul>
+        <li v-for="item,index in items" :key="index">
+            {{index}}:{{item.message}}
+        </li>
+    </ul>
+    <ul>
+        <li v-for="value,key in object" :key="key">
+            {{key}} : {{value}}
+        </li>
+    </ul>
+
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            items: [
+                {message: 'Foo'},
+                {message: 'Bar'}
+            ],
+            object: {
+                title: 'How to do lists in Vue',
+                author: 'Jane Doe',
+                publishedAt: '2016-04-10'
+            }
+        }
+    })
+</script>
+</html>
