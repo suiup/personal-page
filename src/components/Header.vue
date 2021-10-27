@@ -16,6 +16,9 @@
             <v-tab :to="articles.route">
                 {{articles.text}}
             </v-tab>
+            <v-tab :to="about.route">
+                {{about.text}}
+            </v-tab>
             <v-spacer></v-spacer>
             <v-tab router :to="links.route">
                 {{links.text}}
@@ -72,6 +75,10 @@
                 blog: {
                     text: "Robin's Blog",
                     route: "/suiup"
+                },
+                about: {
+                    text: "About",
+                    route: "/about"
                 },
                 links: {
                     text: "Calendar",
